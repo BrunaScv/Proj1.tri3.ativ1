@@ -3,13 +3,19 @@
 bun -v
 bun index.ts
 
-index.ts
+###index.ts
 
-bun.server ({
+const srv = bun.server ({
      port:3000,
      routes: {
-          "/teste": () => new Response("Bingo!")
+          "/teste":{ 
+          GET () => new Response("Brunaa_GET"),
+          PUT () => new Response("Brunaa_PUT"),
+          DELETE () =>  new Response("Brunaa_DELETE"),
+          POST () =>  new Response("Brunaa_POST"),
+          
      }
+}
 })
 
-  
+  Console.log(`Rodando no pc ${srv.url}`)
